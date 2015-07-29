@@ -1,0 +1,8 @@
+---
+- name: config_rundeck | configuring rundeck
+  template: src='{{ item.template }}' dest='{{ item.dest }}' owner=rundeck group=rundeck
+  notify: restart rundeck
+  with_items:
+    - { template: etc/rundeck/rundeck-config.properties.j2, dest: '{{ rundeck_root }}/rundeck-config.properties' }
+    - { template: etc/rundeck/framework.properties.j2, dest: '{{ rundeck_root }}/framework.properties' }
+  when: config_rundeck

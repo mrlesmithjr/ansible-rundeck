@@ -1,0 +1,6 @@
+---
+- name: plugins | installing rundeck plugins
+  template: src='etc/rundeck/{{ item }}.j2' dest='{{ rundeck_base }}/{{ item }}' owner=rundeck group=rundeck
+  notify: restart rundeck
+  with_items:
+    - LogstashPlugin.groovy
