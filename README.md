@@ -1,7 +1,7 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+Installs rundeck http://rundeck.org/
 
 Requirements
 ------------
@@ -11,7 +11,33 @@ Any pre-requisites that may not be covered by Ansible itself or the role should 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+````
+config_rundeck: true
+enable_firewall: false
+enable_logstash_plugin: true
+enable_rundeck: true
+enable_rundeck_plugins: true
+install_ansible: true
+mysql_backend: false
+rundeck_base: /var/lib/rundeck/libext
+rundeck_root: /etc/rundeck
+rundeck_db_name: rundeck
+rundeck_db_pass: rundeck
+rundeck_db_user: rundeck
+rundeck_dl_pkg: rundeck-2.5.1-1-GA.deb
+rundeck_dl_url: http://dl.bintray.com/rundeck/rundeck-deb/
+rundeck_framework_server_name: localhost
+rundeck_framework_server_hostname: localhost
+rundeck_framework_server_port: 4440
+rundeck_framework_server_url: 'http://{{ rundeck_framework_server_hostname }}'
+rundeck_framework_server_username: admin
+rundeck_framework_server_password: admin
+rundeck_framework_ssh_keypath: /var/lib/rundeck/.ssh
+rundeck_framework_ssh_keypath_file: '{{ rundeck_framework_ssh_keypath }}/id_rsa'
+rundeck_framework_ssh_user: rundeck
+rundeck_logstash_host: '{{ logstash_server_fqdn }}'  #defines logstash server if used
+rundeck_logstash_port: 9700
+````
 
 Dependencies
 ------------
@@ -25,7 +51,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: mrlesmithjr.rundeck }
 
 License
 -------
@@ -35,4 +61,7 @@ BSD
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Larry Smith Jr.
+- @mrlesmithjr
+- http://everythingshouldbevirtual.com
+- mrlesmithjr [at] gmail.com
