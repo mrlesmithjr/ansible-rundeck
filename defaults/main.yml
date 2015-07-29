@@ -2,7 +2,7 @@
 # defaults file for ansible-rundeck
 config_rundeck: true
 enable_firewall: false
-enable_logstash_plugin: true
+enable_logstash_plugin: false
 enable_rundeck: true
 enable_rundeck_plugins: true
 install_ansible: true
@@ -23,5 +23,5 @@ rundeck_framework_server_password: admin
 rundeck_framework_ssh_keypath: /var/lib/rundeck/.ssh
 rundeck_framework_ssh_keypath_file: '{{ rundeck_framework_ssh_keypath }}/id_rsa'
 rundeck_framework_ssh_user: rundeck
-rundeck_logstash_host: '{{ logstash_server_fqdn }}'  #defines logstash server if used
+rundeck_logstash_host: []  #defines logstash server if used
 rundeck_logstash_port: 9700
