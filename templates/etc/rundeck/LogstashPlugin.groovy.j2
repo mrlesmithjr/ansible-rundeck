@@ -6,13 +6,11 @@ import com.dtolabs.rundeck.core.logging.LogLevel;
 /**
  * Opens a TCP connection, and writes JSON event messages to the socket
  */
-{% if enable_logstash_plugin %}
 rundeckPlugin(StreamingLogWriterPlugin){
     configuration{
         host defaultValue:"{{ rundeck_logstash_host }}", required:true, description: "Hostname to connect to"
         port required:true, description: "Port to connect to", type: 'Integer'
     }
-{% endif %}
     /**
      * open the socket, prepare some metadata
      */

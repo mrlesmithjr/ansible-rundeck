@@ -1,7 +1,7 @@
 # {{ ansible_managed }}
 #loglevel.default is the default log level for jobs: ERROR,WARN,INFO,VERBOSE,DEBUG
 loglevel.default=INFO
-rdeck.base=/var/lib/rundeck
+rdeck.base={{ rundeck_base }}
 
 #rss.enabled if set to true enables RSS feeds that are public (non-authenticated)
 rss.enabled=false
@@ -9,8 +9,8 @@ rss.enabled=false
 grails.serverURL=http://{{ ansible_fqdn }}:4440
 dataSource.dbCreate = update
 dataSource.url = jdbc:h2:file:/var/lib/rundeck/data/rundeckdb;MVCC=true;TRACE_LEVEL_FILE=4
-{% if enable_rundeck_plugins %}
-{% if enable_logstash_plugin %}
+{% if enable_rundeck_plugins is defined and enable_rundeck_plugins %}
+{%   if rundeck_enable_logstash_plugin is defined and rundeck_enable_logstash_plugin %}
 rundeck.execution.logs.streamingWriterPlugins=LogstashPlugin
-{% endif %}
+{%   endif %}
 {% endif %}

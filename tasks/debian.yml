@@ -13,19 +13,19 @@
 
 - name: debian | creating rundeck db
   mysql_db: name={{ rundeck_db_name }} state=present
-  when: mysql_backend
+  when: rundeck_mysql_backend
 
 - name: debian | creating rundeck db user
   mysql_user: name={{ rundeck_db_user }} password={{ rundeck_db_pass }} priv={{ rundeck_db_name }}:ALL state=present
-  when: mysql_backend
+  when: rundeck_mysql_backend
 
 - name: debian | installing rundeck
   apt: deb=/tmp/{{ rundeck_dl_pkg }}
 
 - name: debian | adding ansible ppa
   apt_repository: repo='ppa:ansible/ansible'
-  when: install_ansible is defined and install_ansible
+  when: rundeck_install_ansible is defined and rundeck_install_ansible
 
 - name: debian | installing ansible
   apt: name=ansible state=latest
-  when: install_ansible is defined and install_ansible
+  when: rundeck_install_ansible is defined and rundeck_install_ansible

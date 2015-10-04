@@ -37,7 +37,7 @@ framework.ssh.user = {{ rundeck_framework_ssh_user }}
 framework.ssh.timeout = 0
 {% if enable_rundeck_plugins %}
 # rundeck plugins
-{%   if enable_logstash_plugin is defined and enable_logstash_plugin %}
+{%   if rundeck_enable_logstash_plugin is defined and rundeck_enable_logstash_plugin %}
 framework.plugin.StreamingLogWriter.LogstashPlugin.port={{ rundeck_logstash_port }}
 framework.plugin.StreamingLogWriter.LogstashPlugin.host={{ rundeck_logstash_host }}
 {%   endif %}

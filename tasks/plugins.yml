@@ -1,6 +1,5 @@
 ---
-- name: plugins | installing rundeck plugins
-  template: src='etc/rundeck/{{ item }}.j2' dest='{{ rundeck_base }}/{{ item }}' owner=rundeck group=rundeck
+- name: plugins | installing logstash plugin
+  template: src=etc/rundeck/LogstashPlugin.groovy.j2 dest={{ rundeck_base }}/libext/LogstashPlugin.groovy owner=rundeck group=rundeck
   notify: restart rundeck
-  with_items:
-    - LogstashPlugin.groovy
+  when: rundeck_enable_logstash_plugin is defined and rundeck_enable_logstash_plugin
