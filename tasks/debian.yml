@@ -1,31 +1,48 @@
 ---
 - name: debian | updating apt-cache
-  apt: update_cache=yes cache_valid_time=86400
+  apt:
+    update_cache: yes
+    cache_valid_time: 86400
 
 - name: debian | installing pre-reqs
-  apt: name={{ item }} state=present
+  apt:
+    name: "{{ item }}"
+    state: present
   with_items:
     - default-jre-headless
     - software-properties-common
 
 - name: debian | downloading rundeck
-  get_url: url={{ rundeck_dl_url }}{{ rundeck_dl_pkg }} dest=/tmp/{{ rundeck_dl_pkg }} mode=0770
+  get_url:
+    url: "{{ rundeck_dl_url }}{{ rundeck_dl_pkg }}"
+    dest: "/opt/{{ rundeck_dl_pkg }}"
+    mode: 0770
 
 - name: debian | creating rundeck db
-  mysql_db: name={{ rundeck_db_name }} state=present
+  mysql_db:
+    name: "{{ rundeck_db_name }}"
+    state: present
   when: rundeck_mysql_backend
 
 - name: debian | creating rundeck db user
-  mysql_user: name={{ rundeck_db_user }} password={{ rundeck_db_pass }} priv={{ rundeck_db_name }}:ALL state=present
+  mysql_user:
+    name: "{{ rundeck_db_user }}"
+    password: "{{ rundeck_db_pass }}"
+    priv: "{{ rundeck_db_name }}:ALL"
+    state: present
   when: rundeck_mysql_backend
 
 - name: debian | installing rundeck
-  apt: deb=/tmp/{{ rundeck_dl_pkg }}
+  apt:
+    deb: "/opt/{{ rundeck_dl_pkg }}"
 
 - name: debian | adding ansible ppa
-  apt_repository: repo='ppa:ansible/ansible'
+  apt_repository:
+    repo: "ppa:ansible/ansible"
   when: rundeck_install_ansible is defined and rundeck_install_ansible
 
 - name: debian | installing ansible
-  apt: name=ansible state=latest
+  apt:
+    name: ansible
+    state: latest
   when: rundeck_install_ansible is defined and rundeck_install_ansible
