@@ -9,6 +9,8 @@
     name: "{{ item }}"
     state: present
   with_items:
+    - python-pip
+    - python-dev
     - default-jre-headless
     - software-properties-common
 
@@ -36,13 +38,18 @@
   apt:
     deb: "/opt/{{ rundeck_dl_pkg }}"
 
-- name: debian | adding ansible ppa
-  apt_repository:
-    repo: "ppa:ansible/ansible"
-  when: rundeck_install_ansible is defined and rundeck_install_ansible
-
 - name: debian | installing ansible
-  apt:
+  pip:
     name: ansible
-    state: latest
-  when: rundeck_install_ansible is defined and rundeck_install_ansible
+    state: present
+    
+#- name: debian | adding ansible ppa
+#  apt_repository:
+#    repo: "ppa:ansible/ansible"
+#  when: rundeck_install_ansible is defined and rundeck_install_ansible
+
+#- name: debian | installing ansible
+#  apt:
+#    name: ansible
+#    state: latest
+#  when: rundeck_install_ansible is defined and rundeck_install_ansible
