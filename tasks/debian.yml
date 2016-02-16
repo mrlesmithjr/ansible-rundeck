@@ -42,14 +42,3 @@
   pip:
     name: ansible
     state: present
-    
-#- name: debian | adding ansible ppa
-#  apt_repository:
-#    repo: "ppa:ansible/ansible"
-#  when: rundeck_install_ansible is defined and rundeck_install_ansible
-
-#- name: debian | installing ansible
-#  apt:
-#    name: ansible
-#    state: latest
-#  when: rundeck_install_ansible is defined and rundeck_install_ansible

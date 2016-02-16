@@ -1,7 +1,7 @@
 ---
 - name: plugins | installing logstash plugin
   template:
-    src: var/lib/rundeck/libext/LogstashPlugin.groovy.j2
+    src: "var/lib/rundeck/libext/LogstashPlugin.groovy.j2"
     dest: "{{ rundeck_base }}/libext/LogstashPlugin.groovy"
     owner: rundeck
     group: rundeck
