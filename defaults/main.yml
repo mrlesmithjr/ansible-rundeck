@@ -28,4 +28,5 @@ rundeck_logstash_host: []  #defines logstash server if used
 rundeck_logstash_port: 9700
 rundeck_mysql_backend: false
 rundeck_root_dir: /etc/rundeck
+rundeck_vagrant_install: false  #defines if installing under Vagrant
 rundeck_version: 2.6.2-1

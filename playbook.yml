@@ -4,6 +4,7 @@
   become: true
   vars:
     - rundeck_mysql_backend: false
+    - rundeck_vagrant_install: true  #defines if installing under Vagrant
   roles:
     - role: ansible-mariadb-mysql
       when: >
