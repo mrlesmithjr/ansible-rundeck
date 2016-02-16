@@ -88,7 +88,8 @@ galaxy_info:
   #  - saucy
     - trusty
   #  - utopic
-  #  - vivid
+    - vivid
+    - wily
   #- name: SLES
   #  versions:
   #  - all
@@ -102,14 +103,14 @@ galaxy_info:
   #  versions:
   #  - all
   #  - any
-  #- name: Debian
-  #  versions:
+  - name: Debian
+    versions:
   #  - all
   #  - etch
-  #  - jessie
+    - jessie
   #  - lenny
   #  - squeeze
-  #  - wheezy
+    - wheezy
   #
   # Below are all categories currently available. Just as with
   # the platforms above, uncomment those that apply to your role.
@@ -123,7 +124,7 @@ galaxy_info:
   #- database
   #- database:nosql
   #- database:sql
-  #- development
+  - development
   #- monitoring
   #- networking
   #- packaging
