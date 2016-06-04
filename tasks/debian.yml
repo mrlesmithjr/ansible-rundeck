@@ -7,12 +7,12 @@
 - name: debian | installing pre-reqs
   apt:
     name: "{{ item }}"
-    state: present
+    state: "present"
   with_items:
-    - python-pip
-    - python-dev
-    - default-jre-headless
-    - software-properties-common
+    - 'python-pip'
+    - 'python-dev'
+    - 'default-jre-headless'
+    - 'software-properties-common'
 
 - name: debian | downloading rundeck
   get_url:
@@ -26,5 +26,5 @@
 
 - name: debian | installing ansible
   pip:
-    name: ansible
-    state: present
+    name: "ansible"
+    state: "present"
