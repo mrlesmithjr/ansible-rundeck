@@ -1,7 +1,7 @@
 Role Name
 =========
 
-Installs rundeck http://rundeck.org/ role.  
+Installs rundeck http://rundeck.org/ role.
 Also installs Ansible for executing playbooks and etc. Configurable options and Logstash plugin ready.
 
 Requirements
@@ -18,16 +18,16 @@ vagrant up
 Usage
 -----
 
-Open up browser of choice  
+Open up browser of choice
 
-Vagrant Environment  
+Vagrant Environment
 http://127.0.0.1:4440
 ````
 user: admin
 password: admin
 ````
 
-Non-Vagrant Environment  
+Non-Vagrant Environment
 http://iporhostname:4440
 ````
 user: admin
@@ -43,8 +43,9 @@ Role Variables
 config_rundeck: true
 enable_rundeck: true
 enable_rundeck_plugins: true
-pri_domain_name: 'example.org'
-rundeck_base: '/var/lib/rundeck'
+pri_domain_name: example.org
+rundeck_base: /var/lib/rundeck
+rundeck_ssh_keydir: './ssh_pub_keys/'
 rundeck_configs:
   - 'framework.properties'
   - 'rundeck-config.properties'
