@@ -49,7 +49,9 @@ rundeck_ssh_keydir: './ssh_pub_keys/'
 rundeck_configs:
   - 'framework.properties'
   - 'rundeck-config.properties'
+rundeck_mysql_backend: false
 rundeck_db_name: 'rundeck'
+rundeck_db_host: 'localhost'
 rundeck_db_pass: 'rundeck'
 rundeck_db_user: 'rundeck'
 rundeck_dl_pkg: 'rundeck-{{ rundeck_version }}-GA.deb'
@@ -67,7 +69,6 @@ rundeck_framework_ssh_user: 'rundeck'
 rundeck_install_ansible: true
 rundeck_logstash_host: []  #defines logstash server if used
 rundeck_logstash_port: 9700
-rundeck_mysql_backend: false
 rundeck_root_dir: '/etc/rundeck'
 rundeck_vagrant_install: false  #defines if installing under Vagrant
 rundeck_version: '2.6.9-1'
