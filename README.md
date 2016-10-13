@@ -45,7 +45,12 @@ enable_rundeck: true
 enable_rundeck_plugins: true
 pri_domain_name: example.org
 rundeck_base: /var/lib/rundeck
+rundeck_ssh_generate_key: omit # uses Ansible defaults
 rundeck_ssh_keydir: './ssh_pub_keys/'
+rundeck_ssh_key_bits: omit # uses Ansible defaults
+rundeck_ssh_key_comment: omit # uses Ansible defaults
+rundeck_ssh_key_passphrase: omit # uses Ansible defaults
+rundeck_ssh_key_type: omit # uses Ansible defaults
 rundeck_configs:
   - 'framework.properties'
   - 'rundeck-config.properties'
