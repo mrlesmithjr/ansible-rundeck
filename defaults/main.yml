@@ -5,7 +5,12 @@ enable_rundeck: true
 enable_rundeck_plugins: true
 pri_domain_name: 'example.org'
 rundeck_base: '/var/lib/rundeck'
+rundeck_ssh_generate_key: true
 rundeck_ssh_keydir: './ssh_pub_keys/'
+# rundeck_ssh_key_bits: 2048
+# rundeck_ssh_key_comment: 'ansible-generated on $HOSTNAME'
+# rundeck_ssh_key_passphrase: ''
+# rundeck_ssh_key_type: rsa
 rundeck_configs:
   - 'framework.properties'
   - 'rundeck-config.properties'
