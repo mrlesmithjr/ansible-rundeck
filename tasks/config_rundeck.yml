@@ -10,3 +10,13 @@
   when: >
         config_rundeck is defined and
         config_rundeck
+
+- name: config_rundeck | configuring authentication
+  template:
+    src: "etc/rundeck/jaas-auth.conf.j2"
+    dest: "{{ rundeck_root_dir }}/jaas-auth.conf"
+    owner: "rundeck"
+    group: "rundeck"
+    mode: 0640
+  notify: restart rundeck
+  when: rundeck_auth_ldap_config
