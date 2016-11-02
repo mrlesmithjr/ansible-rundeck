@@ -33,7 +33,7 @@
     dest: "{{ rundeck_root_dir }}/realm.properties"
     regexp: "^{{ item.item.name }}"
     line: "{{ item.item.name }}: MD5:{{ item.stdout }},{{ item.item.roles }}"
-    state: "{{ item.item.state | default(present) }}"
+    state: "{{ item.item.state | default('present') }}"
   with_items: "{{ rundeck_userhashes.results }}"
   when: rundeck_userhashes|success
   notify: restart rundeck
