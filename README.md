@@ -92,6 +92,18 @@ rundeck_auth_ldap_supplementalRoles: 'user'
 rundeck_auth_ldap_cacheDurationMillis: '300000'
 rundeck_auth_ldap_reportStatistics: 'true'
 rundeck_auth_ldap_nestedGroups: 'false'
+rundeck_users:
+  - name: peter
+    password: peterpass
+    roles: user
+    state: present # default, can be omitted
+  - name: 'marry'
+    password: marrypass
+    roles: 'user,admin'
+    state: absent
+  - name: 'karl'
+    password: "{{ rundeck_userpass_from_somewhere_else }}"
+    roles: 'user,admin'
 rundeck_install_ansible: true
 rundeck_logstash_host: []  #defines logstash server if used
 rundeck_logstash_port: 9700
