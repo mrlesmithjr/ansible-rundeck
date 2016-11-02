@@ -53,6 +53,7 @@ rundeck_auth_ldap_supplementalRoles: 'user'
 rundeck_auth_ldap_cacheDurationMillis: '300000'
 rundeck_auth_ldap_reportStatistics: 'true'
 rundeck_auth_ldap_nestedGroups: 'false'
+rundeck_users: [] # defines users for PropertyFileLoginModule
 rundeck_install_ansible: true
 rundeck_logstash_host: []  #defines logstash server if used
 rundeck_logstash_port: 9700
