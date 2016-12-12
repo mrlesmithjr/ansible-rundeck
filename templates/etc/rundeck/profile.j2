@@ -39,7 +39,7 @@ export RDECK_JVM="-Drdeck.config=/etc/rundeck \
     -Djava.security.auth.login.config=/etc/rundeck/jaas-loginmodule.conf \
     -Dloginmodule.name=RDpropertyfilelogin \
 {% endif %}
-{% if rundeck_jetty_connector_forwarded is defined %}
+{% if rundeck_jetty_connector_forwarded is defined and rundeck_jetty_connector_forwarded %}
     -Drundeck.jetty.connector.forwarded=true \
 {% endif %}
     -Djava.io.tmpdir=$RUNDECK_TEMPDIR"
