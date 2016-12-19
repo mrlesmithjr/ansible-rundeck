@@ -37,3 +37,13 @@
   with_items: "{{ rundeck_userhashes.results }}"
   when: rundeck_userhashes|success
   notify: restart rundeck
+
+- name: config_rundeck | deploy static authentication tokens file
+  template:
+    src: "etc/rundeck/tokens.properties.j2"
+    dest: "{{ rundeck_framework_tokens_path }}/{{ rundeck_framework_tokens_file }}"
+    owner: "rundeck"
+    group: "rundeck"
+    mode: '0640'
+  notify: restart rundeck
+  when: rundeck_framework_tokens is defined and rundeck_framework_tokens
