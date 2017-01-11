@@ -32,6 +32,10 @@ rundeck_framework_server_username: 'admin'
 rundeck_framework_ssh_keypath_file: '{{ rundeck_framework_ssh_keypath }}/id_rsa'
 rundeck_framework_ssh_keypath: '/var/lib/rundeck/.ssh'
 rundeck_framework_ssh_user: 'rundeck'
+rundeck_grails_protocol: 'http'
+rundeck_grails_serverURL: "{{ ansible_fqdn }}"
+rundeck_grails_port: '4440'
+rundeck_jetty_connector_forwarded: false
 rundeck_auth_ldap_config: false
 rundeck_auth_ldap_debug: 'true'
 rundeck_auth_ldap_contextFactory: 'com.sun.jndi.ldap.LdapCtxFactory'
