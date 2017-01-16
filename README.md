@@ -75,6 +75,13 @@ rundeck_grails_protocol: 'http'
 rundeck_grails_serverURL: "{{ ansible_fqdn }}"
 rundeck_grails_port: '4440'
 rundeck_jetty_connector_forwarded: false
+rundeck_framework_tokens_path: "{{ rundeck_root_dir }}"
+rundeck_framework_tokens_file: 'tokens.properties'
+# rundeck_framework_tokens:
+#  - user: admin
+#    key: myRKHyaGJOy5dt61cxyzHq9is0zpCKoq
+#  - user: deployer
+#    key: S2CbjdRgfADGbxnE4m3yx0xEUFSgVV2N
 rundeck_auth_ldap_config: false
 rundeck_auth_ldap_debug: 'true'
 rundeck_auth_ldap_contextFactory: 'com.sun.jndi.ldap.LdapCtxFactory'
