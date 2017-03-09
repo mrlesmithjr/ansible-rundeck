@@ -54,6 +54,7 @@ rundeck_ssh_key_type: omit # uses Ansible defaults
 rundeck_configs:
   - 'framework.properties'
   - 'rundeck-config.properties'
+rundeck_rdeck_jvm: '$RDECK_JVM -Xmx1024m -Xms256m -XX:MaxPermSize=256m -server'
 rundeck_mysql_backend: false
 rundeck_db_name: 'rundeck'
 rundeck_db_host: 'localhost'
