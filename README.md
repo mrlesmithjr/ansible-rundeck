@@ -4,6 +4,11 @@ Role Name
 Installs rundeck http://rundeck.org/ role.
 Also installs Ansible for executing playbooks and etc. Configurable options and Logstash plugin ready.
 
+Build Status
+------------
+
+https://travis-ci.org/mrlesmithjr/ansible-rundeck.svg?branch=master
+
 Requirements
 ------------
 
