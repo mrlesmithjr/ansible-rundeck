@@ -7,7 +7,7 @@ Also installs Ansible for executing playbooks and etc. Configurable options and 
 Build Status
 ------------
 
-https://travis-ci.org/mrlesmithjr/ansible-rundeck.svg?branch=master
+[![Build Status](https://travis-ci.org/mrlesmithjr/ansible-rundeck.svg?branch=master)](https://travis-ci.org/mrlesmithjr/ansible-rundeck)
 
 Requirements
 ------------
