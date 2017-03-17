@@ -47,3 +47,13 @@
     mode: '0640'
   notify: restart rundeck
   when: rundeck_framework_tokens is defined and rundeck_framework_tokens
+
+- name: COPY | deploy acl files
+  copy:
+    dest: "{{ rundeck_root_dir }}/{{ item.filename | default('custom_acls') }}"
+    content: "{{ item.content }}"
+    owner: "{{ item.owner | default('rundeck') }}"
+    group: "{{ item.group | default('rundeck') }}"
+    mode: "{{ item.mode | default('0640') }}"
+  with_items: "{{ rundeck_aclpolicies }}"
+  when: rundeck_aclpolicies is defined and rundeck_aclpolicies
