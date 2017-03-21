@@ -74,7 +74,7 @@ rundeck_vagrant_install: false  #defines if installing under Vagrant
 rundeck_version: '2.6.9-1'
 rundeck_install_ansible_version: '2.1.1.0'
 # rundeck_aclfiles:
-#   - filename: /etc/myrules.aclpolicy # optional
+#   - filename: 'myrules'              # optional - will be placed as {{ rundeck_root_dir }}/{{ item.filename}}.aclpolicy
 #     owner: 'rundeck'                 # optional
 #     group: 'rundeck'                 # optional
 #     mode: '0644'                     # optional
