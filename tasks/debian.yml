@@ -3,42 +3,49 @@
   apt:
     update_cache: yes
     cache_valid_time: 86400
+  become: true
 
 - name: debian | installing pre-reqs for rundeck
   apt:
-    name: "{{ item }}"
-    state: "present"
-  with_items:
-    - 'default-jre-headless'
+    name:
+      - apt-transport-https
+      - openjdk-8-jre-headless
+    state: present
+  become: true
+  register: result
+  until: result is successful
 
 - name: debian | installing pre-reqs for ansible
   apt:
-   name: "{{ item }}"
-   state: "present"
-  with_items:
-   - 'python-pip'
-   - 'python-dev'
-   - 'software-properties-common'
-   - 'gcc'
-   - 'libyaml-dev'
-   - 'libpython2.7-dev'
-   - 'libffi-dev'
-   - 'libssl-dev'
-  when: rundeck_install_ansible is defined and rundeck_install_ansible
-
-- name: debian | downloading rundeck
-  get_url:
-    url: "{{ rundeck_dl_url }}{{ rundeck_dl_pkg }}"
-    dest: "/opt/{{ rundeck_dl_pkg }}"
-    mode: 0770
+    name:
+      - python-pip
+      - python-dev
+      - software-properties-common
+      - gcc
+      - libyaml-dev
+      - libpython2.7-dev
+      - libffi-dev
+      - libssl-dev
+    state: present
+  become: true
+  when:
+    - rundeck_install_ansible is defined
+    - rundeck_install_ansible
+  register: result
+  until: result is successful
 
 - name: debian | installing rundeck
   apt:
-    deb: "/opt/{{ rundeck_dl_pkg }}"
+    deb: "{{ rundeck_pkg_install }}"
+    state: present
+  become: true
+  register: result
+  until: result is successful
 
 - name: debian | installing ansible
   pip:
-    name: "ansible"
-    state: "present"
+    name: ansible
+    state: present
     version: "{{ rundeck_install_ansible_version }}"
-  when: rundeck_install_ansible is defined and rundeck_install_ansible
+  become: true
+  when: rundeck_install_ansible

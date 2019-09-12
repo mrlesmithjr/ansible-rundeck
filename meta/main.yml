@@ -1,25 +1,25 @@
 ---
 galaxy_info:
   author: Larry Smith Jr.
-  description: Installs Rundeck
+  description: An Ansible role to install Rundeck
 
   license: MIT
-  min_ansible_version: 1.2
+  min_ansible_version: 2.0
 
   platforms:
-  - name: Ubuntu
-    versions:
-    - precise
-    - trusty
-    - vivid
-    - wily
-    - xenial
-  - name: Debian
-    versions:
-    - jessie
-    - wheezy
+    - name: Ubuntu
+      versions:
+        - bionic
+        - precise
+        - trusty
+        - xenial
+    - name: Debian
+      versions:
+        - jessie
+        - wheezy
 
-  categories:
-  - development
-  - system
+  galaxy_tags:
+    - development
+    - system
+
 dependencies: []

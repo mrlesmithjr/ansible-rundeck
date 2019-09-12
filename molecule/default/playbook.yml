@@ -1,7 +1,5 @@
 ---
-- name: Installs Rundeck
+- name: Converge
   hosts: all
-  become: true
   roles:
     - role: ansible-rundeck
-  tasks:

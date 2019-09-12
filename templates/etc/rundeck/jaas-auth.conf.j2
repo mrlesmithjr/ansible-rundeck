@@ -24,6 +24,6 @@ authentication {
 
     org.eclipse.jetty.plus.jaas.spi.PropertyFileLoginModule required
       debug="true"
-      file="/etc/rundeck/realm.properties";
+      file="{{ rundeck_root_dir }}/realm.properties";
 
 };
