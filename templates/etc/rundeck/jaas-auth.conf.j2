@@ -1,12 +1,12 @@
 authentication {
 
     com.dtolabs.rundeck.jetty.jaas.JettyCachingLdapLoginModule sufficient
-      debug="{{ rundeck_auth_ldap_debug }}"
+      debug="{{ 'true' if rundeck_auth_ldap_debug else 'false' }}"
       contextFactory="{{ rundeck_auth_ldap_contextFactory }}"
       providerUrl="{{ rundeck_auth_ldap_providerUrl }}"
       authenticationMethod="{{ rundeck_auth_ldap_authenticationMethod }}"
-      forceBindingLogin="{{ rundeck_auth_ldap_forceBindingLogin }}"
-      forceBindingLoginUseRootContextForRoles="{{ rundeck_auth_ldap_forceBindingLoginUseRootContextForRoles }}"
+      forceBindingLogin="{{ 'true' if rundeck_auth_ldap_forceBindingLogin else 'false' }}"
+      forceBindingLoginUseRootContextForRoles="{{ 'true' if rundeck_auth_ldap_forceBindingLoginUseRootContextForRoles else 'false' }}"
       bindDn="{{ rundeck_auth_ldap_bindDn }}"
       bindPassword="{{ rundeck_auth_ldap_bindPassword }}"
       userBaseDn="{{ rundeck_auth_ldap_userBaseDn }}"
@@ -19,11 +19,11 @@ authentication {
       roleObjectClass="{{ rundeck_auth_ldap_roleObjectClass }}"
       supplementalRoles="{{ rundeck_auth_ldap_supplementalRoles }}"
       cacheDurationMillis="{{ rundeck_auth_ldap_cacheDurationMillis }}"
-      reportStatistics="{{ rundeck_auth_ldap_reportStatistics }}"
-      nestedGroups="{{ rundeck_auth_ldap_nestedGroups }}";
+      reportStatistics="{{ 'true' if rundeck_auth_ldap_reportStatistics else 'false' }}"
+      nestedGroups="{{ 'true' if rundeck_auth_ldap_nestedGroups else 'false' }}";
 
     org.eclipse.jetty.plus.jaas.spi.PropertyFileLoginModule required
       debug="true"
-      file="/etc/rundeck/realm.properties";
+      file="{{ rundeck_root_dir }}/realm.properties";
 
 };

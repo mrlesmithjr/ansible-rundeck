@@ -1,4 +1,7 @@
 ---
 # handlers file for ansible-rundeck
 - name: restart rundeck
-  service: name=rundeckd state=restarted
+  service:
+    name: rundeckd
+    state: restarted
+  become: true

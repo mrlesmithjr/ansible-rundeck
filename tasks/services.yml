@@ -2,5 +2,6 @@
 - name: Rundeck - Service should be enabled and up
   service:
     name: rundeckd
-    enabled: yes
+    enabled: true
     state: started
+  become: true

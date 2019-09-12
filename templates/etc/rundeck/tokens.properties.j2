@@ -1,5 +1,4 @@
-{{ ansible_managed }}
-
+{{ ansible_managed | comment }}
 {% for pair in rundeck_framework_tokens %}
 {{ pair.user }}: {{ pair.key }}
 {% endfor %}
