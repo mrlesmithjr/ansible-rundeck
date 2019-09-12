@@ -60,3 +60,12 @@
     mode: "{{ item.mode | default('0640') }}"
   become: true
   loop: "{{ rundeck_aclfiles }}"
+
+- name: config_rundeck | Ensuring Permissions Are Correct For {{ rundeck_base }}
+  file:
+    path: "{{ rundeck_base }}"
+    owner: rundeck
+    group: rundeck
+    state: directory
+    recurse: true
+  become: true
